@@ -1,32 +1,47 @@
 name: Build Electron Forge
 
-# this will help you specify where to run 
 on:
   push:
     branches:
     # this will run on the electron branch
       - main
-# this is where the magic happens, each job happens in parallel btw
+
 jobs:
-  build_on_mac:
-    runs-on: macOS-latest
+
+  build:
+    name: Build Electron Forge
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
     steps:
-    - uses: actions/checkout@main
-      with:
-        ref: electron
-    - uses: actions/setup-node@main
-      with:
-        node-version: 10.16
-    - name: see directory
-      run: ls
-build_on_win:
-    runs-on: windows-2016
-    steps:
-    - uses: actions/checkout@main
-      with:
-        ref: feature/github-actions        
-    - uses: actions/setup-node@main
-      with:
-        node-version: 10.16
-    - name: see directory
-      run: ls
+
+      - uses: actions/checkout@main
+
+      - name: Setup NodeJs
+        uses: actions/setup-node@main
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies
+        run: npm run install
+
+      - name: Build
+        run: npm run package
+
+      - name: Upload builds to release
+        uses: softprops/action-gh-release@main
+        with:
+          tag_name: ${{ github.ref }}
+          files: out/*.*
+          draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Nightly Build
+        uses: actions/upload-artifact@main
+        if: success()
+        with:
+          name: Electron Forge-nightly
+          path: out/**/*!(.zip)
