@@ -1,9 +1,10 @@
 name: Build Electron Forge
 
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+    # this will run on the electron branch
+      - main
 
 jobs:
 
