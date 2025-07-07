@@ -28,15 +28,15 @@ jobs:
         working-directory: ./desktop
         run: npm install
 
-      - name: Build
-        working-directory: ./desktop
-        run: npm run make
+      # - name: Build
+      #   working-directory: ./desktop
+      #   run: npm run make
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: "Build for ${{ matrix.os }} - version ${{ matrix.version }}"
-          path: desktop/out/
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: "Build for ${{ matrix.os }} - version ${{ matrix.version }}"
+      #     path: desktop/out/
 
       # - name: Upload builds to release
       #   uses: softprops/action-gh-release@main
@@ -57,4 +57,6 @@ jobs:
       - name: Release
         if: matrix.os == 'ubuntu-latest'
         working-directory: ./desktop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
