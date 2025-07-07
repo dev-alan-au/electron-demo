@@ -109,7 +109,6 @@ jobs:
           tag_prefix: "v"
           major_pattern: "(MAJOR)"
           minor_pattern: "(MINOR)"
-          patch_pattern: "(PATCH)"
           version_format: "${major}.${minor}.${patch}-rc${increment}"
           user_format_type: "json"
           bump_each_commit: false
