@@ -66,6 +66,7 @@ jobs:
       #   run: npx semantic-release
 
       - name: Build Changelog
+        id: build_changelog
         if: matrix.os == 'ubuntu-latest'
         uses: mikepenz/release-changelog-builder-action@v5
         with:
@@ -99,6 +100,9 @@ jobs:
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Use Changelog"
+        run: echo "${{ steps.build_changelog.outputs.changelog }}"
 
       # - name: Perform semantic version
       #   if: matrix.os == 'ubuntu-latest'
