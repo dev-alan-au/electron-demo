@@ -56,4 +56,5 @@ jobs:
 
       - name: Release
         if: matrix.os == 'ubuntu-latest'
+        working-directory: ./desktop
         run: npx semantic-release
