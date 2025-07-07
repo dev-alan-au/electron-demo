@@ -72,8 +72,6 @@ jobs:
           path: ./desktop
           mode: "HYBRID"
           outputFile: "CHANGELOG.json"
-          outputFormat: "json"
-          outputFileFormat: "json"
           configurationJson: |
             {
               "template": "#{{CHANGELOG}}",
