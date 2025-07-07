@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/dev-alan-au/electron-demo/compare/v1.1.0...v1.2.0) (2025-07-07)
+
+
+### Features
+
+* no log ([f9ced43](https://github.com/dev-alan-au/electron-demo/commit/f9ced43707cd9fd5d3dce3595ef760a5ecd18519))
+
 # [1.1.0](https://github.com/dev-alan-au/electron-demo/compare/v1.0.0...v1.1.0) (2025-07-07)
 
 
