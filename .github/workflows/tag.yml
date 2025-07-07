@@ -1,24 +1,22 @@
-name: Create Custom Log on Version Update
-
+name: "Release Changelog"
 on:
   push:
     tags:
-      - 'v*'  # Example: Trigger on tags starting with 'v'
+      - "v*"
 
 jobs:
-  release:
+  build-changelog:
+    name: "Build Changelog"
     runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     steps:
-      - uses: actions/checkout@v4  # Or your desired checkout action
-        with:
-          fetch-depth: 0 # Important for getting all tags
+      - name: "Checkout Code"
+        uses: actions/checkout@v4
 
-      - name: Create GitHub Release
-        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
-        uses: mikepenz/action-gh-release@v0.2.0-a03
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "Build Changelog"
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@v5
         with:
-          tag_name: ${{ github.ref_name }} # Use the tag name from the event
-          release_name: "Release ${{ github.ref_name }}"
-          body: "Release notes..."
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fromTag: "v1.0.0"
+          toTag: "v1.1.0"
