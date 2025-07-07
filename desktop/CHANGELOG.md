@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/dev-alan-au/electron-demo/compare/v1.3.0...v1.3.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* merge scripts ([4b0f033](https://github.com/dev-alan-au/electron-demo/commit/4b0f033cdbfe44256d6db7362e61469c24c0f6e2))
+
 # [1.3.0](https://github.com/dev-alan-au/electron-demo/compare/v1.2.0...v1.3.0) (2025-07-07)
 
 
