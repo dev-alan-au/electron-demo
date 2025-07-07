@@ -71,7 +71,7 @@ jobs:
         with:
           path: ./desktop
           mode: "HYBRID"
-          outputFile: "CHANGELOG.json"
+          outputFile: "c.md"
           configurationJson: |
             {
               "template": "#{{CHANGELOG}}",
