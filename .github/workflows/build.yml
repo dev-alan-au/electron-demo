@@ -65,6 +65,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
+      - name: "Checkout Code"
+        uses: actions/checkout@v4
+
+      - name: "Build Changelog"
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       # - name: Build Changelog
       #   id: build_changelog
       #   if: matrix.os == 'ubuntu-latest'

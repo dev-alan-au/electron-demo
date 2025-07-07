@@ -18,5 +18,3 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fromTag: "v1.0.0"
-          toTag: "v1.1.0"
