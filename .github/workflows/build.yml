@@ -108,8 +108,8 @@ jobs:
       #   with:
       #     body: ${{steps.build_changelog.outputs.changelog}}
       
-      - name: "Use Changelog"
-        run: echo "${{ steps.build_changelog.outputs.changelog }}"
+      # - name: "Use Changelog"
+      #   run: echo "${{ steps.build_changelog.outputs.changelog }}"
 
       # - name: Perform semantic version
       #   if: matrix.os == 'ubuntu-latest'
