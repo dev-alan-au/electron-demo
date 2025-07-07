@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/dev-alan-au/electron-demo/compare/v1.2.0...v1.3.0) (2025-07-07)
+
+
+### Features
+
+* watch changelog ([655ff1f](https://github.com/dev-alan-au/electron-demo/commit/655ff1f092b21fa73fc85f834c340d3d56d4c831))
+
 # [1.2.0](https://github.com/dev-alan-au/electron-demo/compare/v1.1.0...v1.2.0) (2025-07-07)
 
 
