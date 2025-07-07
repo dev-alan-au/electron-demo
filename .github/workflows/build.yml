@@ -55,9 +55,43 @@ jobs:
       #     name: Electron Forge-nightly
       #     path: out/**/*!(.zip)
 
-      - name: Release
+      # - name: Release
+      #   if: matrix.os == 'ubuntu-latest'
+      #   working-directory: ./desktop
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: npx semantic-release
+
+      - name: Build Changelog
         if: matrix.os == 'ubuntu-latest'
-        working-directory: ./desktop
+        uses: mikepenz/release-changelog-builder-action@v5
+        with:
+          working-directory: ./desktop
+          mode: "HYBRID"
+          configurationJson: |
+            {
+              "template": "#{{CHANGELOG}}",
+              "categories": [
+                {
+                    "title": "## Feature",
+                    "labels": ["feat", "feature"]
+                },
+                {
+                    "title": "## Fix",
+                    "labels": ["fix", "bug"]
+                },
+                {
+                    "title": "## Other",
+                    "labels": []
+                }
+              ],
+              "label_extractor": [
+                {
+                  "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\\([\\w\\-\\.]+\\))?(!)?: ([\\w ])+([\\s\\S]*)",
+                  "on_property": "title",
+                  "target": "$1"
+                }
+              ]
+            }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
