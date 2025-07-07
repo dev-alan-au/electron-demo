@@ -55,4 +55,5 @@ jobs:
       #     path: out/**/*!(.zip)
 
       - name: Release
+        if: matrix.os == 'ubuntu-latest'
         run: npx semantic-release
