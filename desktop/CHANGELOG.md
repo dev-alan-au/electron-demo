@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/dev-alan-au/electron-demo/compare/v1.3.1...v1.3.2) (2025-07-07)
+
+
+### Bug Fixes
+
+* last for tonight ([190421e](https://github.com/dev-alan-au/electron-demo/commit/190421ef36b6da89d8bad66a220902ed18245d18))
+
 ## [1.3.1](https://github.com/dev-alan-au/electron-demo/compare/v1.3.0...v1.3.1) (2025-07-07)
 
 
