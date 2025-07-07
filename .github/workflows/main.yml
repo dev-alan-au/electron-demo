@@ -9,7 +9,7 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Needed to create releases or write files
+      contents: write  # Needed to create releases or write files!
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
