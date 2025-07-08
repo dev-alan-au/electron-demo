@@ -1,21 +1,12 @@
+## Release {{version}} ({{date}})
+
+### Downloads
+- [MacOS download](http://google.com/desktop/mac-os/{{version}}/file.zip)
+- [Linux download](http://google.com/desktop/ubuntu/{{version}}/file.zip)
+- [Windows download](http://google.com/desktop/windows/{{version}}/file.zip)
+
 {{#each commitGroups}}
-  <h2>{{title}}</h2>
-  {{#if notes}}
-    <h3>Breaking Changes</h3>
-    <ul>
-      {{#each notes}}
-        <li>{{text}}</li>
-      {{/each}}
-    </ul>
-  {{/if}}
-  <ul>
-    {{#each commits}}
-      <li>
-        {{#if scope}}
-          **{{scope}}:**
-        {{/if}}
-        {{subject}} ({{hash abbreviated=true}})
-      </li>
-    {{/each}}
-  </ul>
+  {{#each commits}}
+    - **{{subject}}** ({{hash}}) - _{{author.name}}_ on {{date}}
+  {{/each}}
 {{/each}}
