@@ -20,7 +20,6 @@ jobs:
       - name: Clone main
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           ref: main
 
       - name: Setup NodeJs
@@ -31,6 +30,28 @@ jobs:
       - name: Install dependencies
         working-directory: ./desktop
         run: npm install
+
+      # - name: Build
+      #   working-directory: ./desktop
+      #   run: npm run make
+
+  release:
+    name: Release Electron Forge
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+        
+      - name: Release
+        working-directory: ./desktop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
 
       # - name: Build
       #   working-directory: ./desktop
@@ -58,15 +79,15 @@ jobs:
       #     name: Electron Forge-nightly
       #     path: out/**/*!(.zip)
 
-      - name: Release
-        if: matrix.os == 'ubuntu-latest'
-        working-directory: ./desktop
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+      # - name: Release
+      #   if: matrix.os == 'ubuntu-latest'
+      #   working-directory: ./desktop
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: npx semantic-release
 
-      - name: "Checkout Code"
-        uses: actions/checkout@v4
+      # - name: "Checkout Code"
+      #   uses: actions/checkout@v4
 
       # - name: "Build Changelog"
       #   id: build_changelog
@@ -74,41 +95,41 @@ jobs:
       #   with:
       #     token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Changelog
-        id: build_changelog
-        if: matrix.os == 'ubuntu-latest'
-        uses: mikepenz/release-changelog-builder-action@v5
-        with:
-          path: ./desktop
-          mode: "HYBRID"
-          outputFile: "CHANGELOG2.md"
-          configurationJson: |
-            {
-              "template": "#{{CHANGELOG}}",
-              "categories": [
-                {
-                    "title": "## Feature",
-                    "labels": ["feat", "feature"]
-                },
-                {
-                    "title": "## Fix",
-                    "labels": ["fix", "bug"]
-                },
-                {
-                    "title": "## Other",
-                    "labels": []
-                }
-              ],
-              "label_extractor": [
-                {
-                  "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\\([\\w\\-\\.]+\\))?(!)?: ([\\w ])+([\\s\\S]*)",
-                  "on_property": "title",
-                  "target": "$1"
-                }
-              ]
-            }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Build Changelog
+      #   id: build_changelog
+      #   if: matrix.os == 'ubuntu-latest'
+      #   uses: mikepenz/release-changelog-builder-action@v5
+      #   with:
+      #     path: ./desktop
+      #     mode: "HYBRID"
+      #     outputFile: "CHANGELOG2.md"
+      #     configurationJson: |
+      #       {
+      #         "template": "#{{CHANGELOG}}",
+      #         "categories": [
+      #           {
+      #               "title": "## Feature",
+      #               "labels": ["feat", "feature"]
+      #           },
+      #           {
+      #               "title": "## Fix",
+      #               "labels": ["fix", "bug"]
+      #           },
+      #           {
+      #               "title": "## Other",
+      #               "labels": []
+      #           }
+      #         ],
+      #         "label_extractor": [
+      #           {
+      #             "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\\([\\w\\-\\.]+\\))?(!)?: ([\\w ])+([\\s\\S]*)",
+      #             "on_property": "title",
+      #             "target": "$1"
+      #           }
+      #         ]
+      #       }
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
       # - name: Create Release
