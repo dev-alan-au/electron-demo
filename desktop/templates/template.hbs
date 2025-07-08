@@ -1,12 +1,18 @@
-## Release {{version}} ({{date}})
+{
+  release: {
+    version: "{{version}}",
+    date: "{{date}}"
+  },
+  downloads: {
+    mac: "http://google.com/desktop/mac-os/{{version}}/file.zip",
+    linux: "http://google.com/desktop/ubuntu/{{version}}/file.zip",
+    windows: "http://google.com/desktop/windows/{{version}}/file.zip"
+  }
+}
 
-### Downloads
-- [MacOS download](http://google.com/desktop/mac-os/{{version}}/file.zip)
-- [Linux download](http://google.com/desktop/ubuntu/{{version}}/file.zip)
-- [Windows download](http://google.com/desktop/windows/{{version}}/file.zip)
-
+{{!-- 
 {{#each commitGroups}}
   {{#each commits}}
 - {{ type }} {{ date }}: {{subject}}
   {{/each}}
-{{/each}}
+{{/each}} --}}
