@@ -7,6 +7,6 @@
 
 {{#each commitGroups}}
   {{#each commits}}
-    - **{{subject}}** ({{hash}}) - _{{author.name}}_ on {{date}}
+- {{ type }} {{ date }}: {{subject}}
   {{/each}}
 {{/each}}
