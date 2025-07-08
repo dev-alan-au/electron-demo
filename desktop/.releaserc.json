@@ -7,7 +7,7 @@
       {
         "preset": "conventionalcommits",
         "writerOpts": {
-          "mainTemplate": "./templates/template.hbs"
+          "mainTemplate": "{{#if version}}# {{version}}\n\n{{/if}}{{#if date}}_Released {{date}}_\n\n{{/if}}{{#each releases}}{{#if this.notes}}{{{this.notes}}}\n\n{{/if}}{{/each}}"
         }
       }
     ],
@@ -25,18 +25,6 @@
       {
         "assets": ["package.json", "CHANGELOG.md"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": [
-          {
-            "path": "server.zip",
-            "label": "DeltaWeb - Build: ${nextRelease.gitTag}",
-            "name": "server-${nextRelease.gitTag}.zip"
-          }
-        ]
       }
     ]
   ]
