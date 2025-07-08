@@ -1,3 +1,12 @@
+## Release 1.3.9 (2025-07-08)
+
+### Downloads
+- [MacOS download](http://google.com/desktop/mac-os/1.3.9/file.zip)
+- [Linux download](http://google.com/desktop/ubuntu/1.3.9/file.zip)
+- [Windows download](http://google.com/desktop/windows/1.3.9/file.zip)
+
+    - **move templates** (7abd1f4048a74bf167d4858637ad16427a616558) - _Dev Alan_ on
+
 ## [1.3.8](https://github.com/dev-alan-au/electron-demo/compare/v1.3.7...v1.3.8) (2025-07-08)
 
 
