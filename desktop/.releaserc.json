@@ -26,6 +26,18 @@
         "assets": ["package.json", "CHANGELOG.md"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "server.zip",
+            "label": "DeltaWeb - Build: ${nextRelease.gitTag}",
+            "name": "server-${nextRelease.gitTag}.zip"
+          }
+        ]
+      }
     ]
   ]
 }
