@@ -25,48 +25,48 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
-  build:
-    needs: version_bump
-    name: Build Electron Forge
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        # os: [macos-latest, ubuntu-latest, windows-latest]
-        os: [ubuntu-latest]
+  # build:
+  #   needs: version_bump
+  #   name: Build Electron Forge
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       # os: [macos-latest, ubuntu-latest, windows-latest]
+  #       os: [ubuntu-latest]
 
-    steps:
-      - name: Clone main
-        uses: actions/checkout@v4
-        with:
-          ref: main
+  #   steps:
+  #     - name: Clone main
+  #       uses: actions/checkout@v4
+  #       with:
+  #         ref: main
 
-      - name: Setup NodeJs
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
+  #     - name: Setup NodeJs
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '22.x'
 
-      - name: Install dependencies
-        working-directory: ./desktop
-        run: npm install
+  #     - name: Install dependencies
+  #       working-directory: ./desktop
+  #       run: npm install
 
-      - name: Build
-        working-directory: ./desktop
-        run: npm run make
+  #     - name: Build
+  #       working-directory: ./desktop
+  #       run: npm run make
 
-      - name: App Version
-        id: app-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
-        with:
-          path: './desktop'
+  #     - name: App Version
+  #       id: app-version
+  #       uses: martinbeentjes/npm-get-version-action@v1.3.1
+  #       with:
+  #         path: './desktop'
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: "Build for ${{ matrix.os }} - version ${{ steps.app-version.outputs.current-version}}"
-          path: desktop/out/
+  #     - name: Upload artifact
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: "Build for ${{ matrix.os }} - version ${{ steps.app-version.outputs.current-version}}"
+  #         path: desktop/out/
 
   create_downloads_json:
-    needs: build
+    needs: version_bump
     name: Create Downloads JSON
     runs-on: ubuntu-latest
     steps:
@@ -98,6 +98,6 @@ jobs:
       - name: Upload release.json
         uses: actions/upload-artifact@v4
         with:
-          path: desktop/
+          path: desktop/release.json
           name: release.json
           overwrite: true
