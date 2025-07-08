@@ -4,12 +4,12 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     [
       "@semantic-release/release-notes-generator",
-      // {
-      //   "preset": "conventionalcommits",
-      //   "writerOpts": {
-      //     "mainTemplate": require('fs').readFileSync('./templates/template.hbs', 'utf8'),
-      //   }
-      // }
+      {
+        // "preset": "conventionalcommits",
+        "writerOpts": {
+          "mainTemplate": require('fs').readFileSync('./templates/template.hbs', 'utf8'),
+        }
+      }
     ],
     [
       "@semantic-release/changelog",
