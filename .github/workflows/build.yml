@@ -46,6 +46,10 @@ jobs:
         with:
           fetch-depth: 0
           ref: main
+
+      - name: Install dependencies
+        working-directory: ./desktop
+        run: npm install
         
       - name: Release
         working-directory: ./desktop
