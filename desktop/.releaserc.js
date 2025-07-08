@@ -1,4 +1,4 @@
-{
+module.exports = {
   "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
@@ -7,7 +7,7 @@
       {
         "preset": "conventionalcommits",
         "writerOpts": {
-          "mainTemplate": "{{#if version}}# {{version}}\n\n{{/if}}{{#if date}}_Released {{date}}_\n\n{{/if}}{{#each releases}}{{#if this.notes}}{{{this.notes}}}\n\n{{/if}}{{/each}}"
+          "mainTemplate": require('fs').readFileSync('./templates/template.hbs', 'utf8'),
         }
       }
     ],
