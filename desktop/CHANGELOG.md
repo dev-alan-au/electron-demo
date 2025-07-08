@@ -1,3 +1,12 @@
+## Release 1.3.11 (2025-07-08)
+
+### Downloads
+- [MacOS download](http://google.com/desktop/mac-os/1.3.11/file.zip)
+- [Linux download](http://google.com/desktop/ubuntu/1.3.11/file.zip)
+- [Windows download](http://google.com/desktop/windows/1.3.11/file.zip)
+
+- Bug Fixes : update template
+
 ## Release 1.3.10 (2025-07-08)
 
 ### Downloads
