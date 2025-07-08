@@ -1,3 +1,7 @@
+# 1.3.7
+
+_Released 2025-07-08_
+
 ./templates/template.hbs
 
 ./templates/template.hbs
