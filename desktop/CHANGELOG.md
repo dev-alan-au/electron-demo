@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/dev-alan-au/electron-demo/compare/v1.4.5...v1.4.6) (2025-07-08)
+
+
+### Bug Fixes
+
+* add compression level ([e59bf52](https://github.com/dev-alan-au/electron-demo/commit/e59bf521d1d174bce98c15ea307c8a01b2fca471))
+
 ## [1.4.5](https://github.com/dev-alan-au/electron-demo/compare/v1.4.4...v1.4.5) (2025-07-08)
 
 
