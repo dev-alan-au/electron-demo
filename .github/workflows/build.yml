@@ -99,5 +99,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: desktop/release.json
-          name: release.json
+          name: release
           overwrite: true
+          compression-level: 0 # no compression
