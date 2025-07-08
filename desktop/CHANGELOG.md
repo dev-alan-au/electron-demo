@@ -1,3 +1,11 @@
+## [1.3.8](https://github.com/dev-alan-au/electron-demo/compare/v1.3.7...v1.3.8) (2025-07-08)
+
+
+### Bug Fixes
+
+* remove mainTemplate ([ed632d6](https://github.com/dev-alan-au/electron-demo/commit/ed632d6f1115f5d7ba3b3e18e40e398ffe24d85e))
+* try js config ([f0f391f](https://github.com/dev-alan-au/electron-demo/commit/f0f391f23c5fa9157749807c7e1d8bb62ebcb582))
+
 # 1.3.7
 
 _Released 2025-07-08_
