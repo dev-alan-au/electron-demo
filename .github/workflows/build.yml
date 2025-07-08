@@ -52,12 +52,14 @@ jobs:
         working-directory: ./desktop
         run: npm run make
 
-      - name: get-npm-version
-        id: package-version
+      - name: App Version
+        id: app-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
+        with:
+          path: './desktop/package.json'
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: "Build for ${{ matrix.os }} - version ${{ steps.package-version.outputs.current-version}}"
+          name: "Build for ${{ matrix.os }} - version ${{ steps.app-version.outputs.current-version}}"
           path: desktop/out/
