@@ -1,0 +1,26 @@
+name: Release Electron Forge
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Electron Forge
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Install dependencies
+        working-directory: ./desktop
+        run: npm install
+        
+      - name: Release
+        working-directory: ./desktop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
