@@ -63,3 +63,37 @@ jobs:
         with:
           name: "Build for ${{ matrix.os }} - version ${{ steps.app-version.outputs.current-version}}"
           path: desktop/out/
+
+  create_downloads_json:
+    name: Create Downloads JSON
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Create JSON
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            const version = require('./desktop/package.json').version;
+            const downloads = {
+              version,
+              date: new Date().toISOString().split('T')[0],
+              downloads: {
+                mac: 'http://google.com/desktop/mac-os/' + version + '/file.zip',
+                linux: 'http://google.com/desktop/ubuntu/' + version + '/file.zip',
+                windows: 'http://google.com/desktop/windows/' + version + '/file.zip'
+              }
+            };
+            fs.writeFileSync(path.join(__dirname, 'desktop', 'release.json'), JSON.stringify(downloads, null, 2));
+          "
+
+      - name: Upload release.json
+        uses: actions/upload-artifact@v4
+        with:
+          name: release.json
