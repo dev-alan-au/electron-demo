@@ -1,4 +1,16 @@
 {
+  "release": {
+    "version": "1.3.14",
+    "date": "2025-07-08"
+  },
+  "downloads": {
+    "mac": "http://google.com/desktop/mac-os/1.3.14/file.zip",
+    "linux": "http://google.com/desktop/ubuntu/1.3.14/file.zip",
+    "windows": "http://google.com/desktop/windows/1.3.14/file.zip"
+  }
+}
+
+{
   release: {
     version: "1.3.13",
     date: "2025-07-08"
