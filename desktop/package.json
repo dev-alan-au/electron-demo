@@ -29,6 +29,7 @@
     "@semantic-release/git": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "conventional-changelog-conventionalcommits": "^9.0.0",
     "electron": "37.2.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.57.1",
