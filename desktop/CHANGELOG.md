@@ -1,3 +1,5 @@
+./template/template.hbs
+
 ## [1.3.3](https://github.com/dev-alan-au/electron-demo/compare/v1.3.2...v1.3.3) (2025-07-07)
 
 
