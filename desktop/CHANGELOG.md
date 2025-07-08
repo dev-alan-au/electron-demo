@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/dev-alan-au/electron-demo/compare/v1.4.2...v1.4.3) (2025-07-08)
+
+
+### Bug Fixes
+
+* gen download json ([ebcaa4f](https://github.com/dev-alan-au/electron-demo/commit/ebcaa4fc908c6a38494584bfc0bb321478b060c7))
+
 ## [1.4.2](https://github.com/dev-alan-au/electron-demo/compare/v1.4.1...v1.4.2) (2025-07-08)
 
 
