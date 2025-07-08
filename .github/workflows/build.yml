@@ -4,6 +4,26 @@ on:
   workflow_dispatch:
 
 jobs:
+  version_bump:
+    name: Prepare Electron Forge
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Install dependencies
+        working-directory: ./desktop
+        run: npm install
+        
+      - name: Release
+        working-directory: ./desktop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
 
   build:
     name: Build Electron Forge
@@ -32,8 +52,12 @@ jobs:
         working-directory: ./desktop
         run: npm run make
 
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: "Build for ${{ matrix.os }} - version ${{ matrix.version }}"
-      #     path: desktop/out/
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Build for ${{ matrix.os }} - version ${{ steps.package-version.outputs.current-version}}"
+          path: desktop/out/

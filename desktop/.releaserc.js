@@ -4,16 +4,16 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     [
       "@semantic-release/release-notes-generator",
-      {
-        "writerOpts": {
-          "mainTemplate": require('fs').readFileSync('./templates/template.hbs', 'utf8'),
-        }
-      }
+      // {
+      //   "writerOpts": {
+      //     "mainTemplate": require('fs').readFileSync('./templates/template.hbs', 'utf8'),
+      //   }
+      // }
     ],
     [
       "@semantic-release/changelog",
       {
-        "changelogFile": "release.json",
+        "changelogFile": "CHANGELOG.md",
         "create": true
       }
     ],
@@ -23,7 +23,7 @@ module.exports = {
     [
       "@semantic-release/git",
       {
-        "assets": ["package.json", "release.json"],
+        "assets": ["package.json", "CHANGELOG.md"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ]
