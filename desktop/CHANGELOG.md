@@ -1,3 +1,10 @@
+## [1.4.13](https://github.com/dev-alan-au/electron-demo/compare/v1.4.12...v1.4.13) (2025-07-09)
+
+
+### Bug Fixes
+
+* Update build.yml ([3fd66d3](https://github.com/dev-alan-au/electron-demo/commit/3fd66d398aaa97e7d4dafb9765190ab485b591c8))
+
 ## [1.4.12](https://github.com/dev-alan-au/electron-demo/compare/v1.4.11...v1.4.12) (2025-07-09)
 
 
