@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/dev-alan-au/electron-demo/compare/v1.4.8...v1.4.9) (2025-07-09)
+
+
+### Bug Fixes
+
+* make dir check ([5810ba4](https://github.com/dev-alan-au/electron-demo/commit/5810ba4f41e8face40ca34a0f5e0ae760be74292))
+
 ## [1.4.8](https://github.com/dev-alan-au/electron-demo/compare/v1.4.7...v1.4.8) (2025-07-09)
 
 
