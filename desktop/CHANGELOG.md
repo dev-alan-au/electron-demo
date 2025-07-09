@@ -1,3 +1,10 @@
+## [1.4.11](https://github.com/dev-alan-au/electron-demo/compare/v1.4.10...v1.4.11) (2025-07-09)
+
+
+### Bug Fixes
+
+* Add commit step ([b218b0b](https://github.com/dev-alan-au/electron-demo/commit/b218b0b0dab9de0b0abdc98f339336ea16a161ae))
+
 ## [1.4.10](https://github.com/dev-alan-au/electron-demo/compare/v1.4.9...v1.4.10) (2025-07-09)
 
 
