@@ -114,15 +114,7 @@ jobs:
             console.log(files);
 
             const releases = files.map((file) => {
-              fs.readFileSync(allReleasesPath + '/' + file, 'utf8', (err, data) => {
-                if (err) {
-                  console.error(err);
-                  return;
-                }
-
-                console.log(data);
-                return data;
-              });
+              return fs.readFileSync(allReleasesPath + '/' + file, { encoding: 'utf8', flag: 'r' });
             }).filter(release => !!release);
 
             console.log(releases)
