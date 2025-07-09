@@ -86,7 +86,7 @@ jobs:
             const releaseDir = path.join(__dirname, 'desktop', 'releases');
 
             if(!fs.existsSync(releaseDir)) {
-              fs.mkdirSync(directoryPath);
+              fs.mkdirSync(releaseDir);
             }
             
             const release = {
