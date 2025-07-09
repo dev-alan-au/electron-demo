@@ -1,3 +1,10 @@
+## [1.4.22](https://github.com/dev-alan-au/electron-demo/compare/v1.4.21...v1.4.22) (2025-07-09)
+
+
+### Bug Fixes
+
+* show summary ([135c347](https://github.com/dev-alan-au/electron-demo/commit/135c347432a5275ee7b695349f44b646fedac3e0))
+
 ## [1.4.21](https://github.com/dev-alan-au/electron-demo/compare/v1.4.20...v1.4.21) (2025-07-09)
 
 
