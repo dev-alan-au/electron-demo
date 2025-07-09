@@ -110,7 +110,7 @@ jobs:
             const allReleasesPath = path.join(__dirname, 'desktop', 'releases');
             const releases = [];
 
-            fs.readdir(allReleasesPath, (err, files) => {
+            fs.readdirSync(allReleasesPath, (err, files) => {
               if (err) {
                 console.error('Error reading directory:', err);
                 return;
