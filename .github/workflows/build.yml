@@ -97,6 +97,7 @@ jobs:
                 pub_date: new Date().toISOString(),
               }
             };
+            
             fs.writeFileSync(path.join(__dirname, 'desktop', 'releases', 'v' + version + '.json'), JSON.stringify(release, null, 2));
           "
 
@@ -104,12 +105,14 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -am "Add new release JSON"
+          git add -a
+          git commit -m "Add new release JSON"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
 
       # - name: Upload release.json
       #   uses: actions/upload-artifact@v4
