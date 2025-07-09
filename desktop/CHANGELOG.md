@@ -1,3 +1,10 @@
+## [1.4.15](https://github.com/dev-alan-au/electron-demo/compare/v1.4.14...v1.4.15) (2025-07-09)
+
+
+### Bug Fixes
+
+* add read ([fcd7fcf](https://github.com/dev-alan-au/electron-demo/commit/fcd7fcff7c4e414dc3e53f86f88d83766ea61232))
+
 ## [1.4.14](https://github.com/dev-alan-au/electron-demo/compare/v1.4.13...v1.4.14) (2025-07-09)
 
 
