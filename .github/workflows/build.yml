@@ -101,29 +101,16 @@ jobs:
             fs.writeFileSync(path.join(__dirname, 'desktop', 'releases', 'v' + version + '.json'), JSON.stringify(release, null, 2));
           "
 
-      - name: Commit release JSON
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add desktop/releases/\*
-          git commit -m "Add new release JSON"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-
       - name: Compile release.json from JSON files
         run: |
           node -e "
             const fs = require('fs');
             const path = require('path');
             const version = require('./desktop/package.json').version;
-            const allReleases = path.join(__dirname, 'desktop', 'releases');
+            const allReleasesPath = path.join(__dirname, 'desktop', 'releases');
             const releases = [];
 
-            fs.readdir(directoryPath, (err, files) => {
+            fs.readdir(allReleasesPath, (err, files) => {
               if (err) {
                 console.error('Error reading directory:', err);
                 return;
@@ -151,6 +138,20 @@ jobs:
             
             fs.writeFileSync(path.join(__dirname, 'desktop', 'RELEASE.json'), JSON.stringify(release, null, 2));
           "
+
+      - name: Commit release JSON
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add desktop/releases/\*
+          git add desktop/RELEASE.json
+          git commit -m "[AUTO] Add new release"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
 
       # - name: Upload release.json
       #   uses: actions/upload-artifact@v4
