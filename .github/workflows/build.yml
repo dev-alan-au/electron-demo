@@ -108,31 +108,24 @@ jobs:
             const path = require('path');
             const version = require('./desktop/package.json').version;
             const allReleasesPath = path.join(__dirname, 'desktop', 'releases');
-            const releases = [];
 
-            fs.readdirSync(allReleasesPath, (err, files) => {
-              if (err) {
-                console.error('Error reading directory:', err);
-                return;
-              }
-            
-              // Sort the files array alphabetically
-              files.sort((a, b) => a.localeCompare(b)); // Use localeCompare for proper alphabetical sorting
+            const files = fs.readdirSync(allReleasesPath).sort((a, b) => a.localeCompare(b));
 
-              console.log(files.length)
-            
-              files.foreach(file => {
-                fs.readFileSync(allReleasesPath + '/' + file, 'utf8', (err, data) => {
-                  if (err) {
-                    console.error(err);
-                    return;
-                  }
+            console.log(files);
 
-                  console.log(data);
-                  releases.push(data);
-                });
+            const releases = files.map((file) => {
+              fs.readFileSync(allReleasesPath + '/' + file, 'utf8', (err, data) => {
+                if (err) {
+                  console.error(err);
+                  return;
+                }
+
+                console.log(data);
+                return data;
               });
-            });
+            }).filter(release => !!release);
+
+            console.log(releases)
             
             const releaseSummary = {
               currentRelease: version,
