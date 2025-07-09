@@ -83,6 +83,12 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const version = require('./desktop/package.json').version;
+            const releaseDir = path.join(__dirname, 'desktop', 'releases');
+
+            if(!fs.existsSync(releaseDir)) {
+              fs.mkdirSync(directoryPath);
+            }
+            
             const release = {
               version,
               updateTo: {
@@ -91,7 +97,7 @@ jobs:
                 pub_date: new Date().toISOString(),
               }
             };
-            fs.writeFileSync(path.join(__dirname, 'desktop', 'releases', version + '.json'), JSON.stringify(release, null, 2));
+            fs.writeFileSync(path.join(__dirname, 'desktop', 'releases', 'v' + version + '.json'), JSON.stringify(release, null, 2));
           "
 
       - name: Upload release.json
