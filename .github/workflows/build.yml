@@ -77,7 +77,7 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Create JSON
+      - name: Create release JSON
         run: |
           node -e "
             const fs = require('fs');
@@ -100,10 +100,21 @@ jobs:
             fs.writeFileSync(path.join(__dirname, 'desktop', 'releases', 'v' + version + '.json'), JSON.stringify(release, null, 2));
           "
 
-      - name: Upload release.json
-        uses: actions/upload-artifact@v4
+      - name: Commit release JSON
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Add new release JSON"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          path: desktop/release.json
-          name: release
-          overwrite: true
-          compression-level: 0 # no compression
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Upload release.json
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     path: desktop/release.json
+      #     name: release
+      #     overwrite: true
+      #     compression-level: 0 # no compression
