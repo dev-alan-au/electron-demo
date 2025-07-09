@@ -136,7 +136,7 @@ jobs:
               releases,
             };
             
-            fs.writeFileSync(path.join(__dirname, 'desktop', 'RELEASE.json'), JSON.stringify(release, null, 2));
+            fs.writeFileSync(path.join(__dirname, 'desktop', 'RELEASE.json'), JSON.stringify(releaseSummary, null, 2));
           "
 
       - name: Commit release JSON
