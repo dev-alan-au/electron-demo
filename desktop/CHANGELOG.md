@@ -1,3 +1,10 @@
+## [1.4.18](https://github.com/dev-alan-au/electron-demo/compare/v1.4.17...v1.4.18) (2025-07-09)
+
+
+### Bug Fixes
+
+* add logging ([404583e](https://github.com/dev-alan-au/electron-demo/commit/404583e52770e3d4334a625fbe1a303b4cc6171b))
+
 ## [1.4.17](https://github.com/dev-alan-au/electron-demo/compare/v1.4.16...v1.4.17) (2025-07-09)
 
 
