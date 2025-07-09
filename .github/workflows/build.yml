@@ -120,7 +120,7 @@ jobs:
               files.sort((a, b) => a.localeCompare(b)); // Use localeCompare for proper alphabetical sorting
             
               files.forEach(file => {
-                fs.readFile(allReleasesPath + '/' + file, 'utf8', (err, data) => {
+                fs.readFileSync(allReleasesPath + '/' + file, 'utf8', (err, data) => {
                   if (err) {
                     console.error(err);
                     return;
@@ -136,6 +136,8 @@ jobs:
               currentRelease: version,
               releases,
             };
+
+            console.log({releaseSummary})
             
             fs.writeFileSync(path.join(__dirname, 'desktop', 'RELEASE.json'), JSON.stringify(releaseSummary, null, 2));
           "
