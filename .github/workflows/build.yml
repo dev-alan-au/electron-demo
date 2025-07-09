@@ -110,7 +110,7 @@ jobs:
             const allReleasesPath = path.join(__dirname, 'desktop', 'releases');
             const releases = [];
 
-            fs.readdirSync(allReleasesPath, (err, files) => {
+            await fs.readdirSync(allReleasesPath, (err, files) => {
               if (err) {
                 console.error('Error reading directory:', err);
                 return;
@@ -119,8 +119,8 @@ jobs:
               // Sort the files array alphabetically
               files.sort((a, b) => a.localeCompare(b)); // Use localeCompare for proper alphabetical sorting
             
-              files.forEach(file => {
-                fs.readFileSync(allReleasesPath + '/' + file, 'utf8', (err, data) => {
+              for(const file in files) {
+                await fs.readFile(allReleasesPath + '/' + file, 'utf8', (err, data) => {
                   if (err) {
                     console.error(err);
                     return;
@@ -130,7 +130,7 @@ jobs:
                   releases.push(data);
                 });
               });
-            });
+            };
             
             const releaseSummary = {
               currentRelease: version,
