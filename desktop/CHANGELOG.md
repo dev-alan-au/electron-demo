@@ -1,3 +1,10 @@
+## [1.4.19](https://github.com/dev-alan-au/electron-demo/compare/v1.4.18...v1.4.19) (2025-07-09)
+
+
+### Bug Fixes
+
+* update path ([3e5f5b5](https://github.com/dev-alan-au/electron-demo/commit/3e5f5b5fb4fe52a9b90de6e56285d0e4633921b7))
+
 ## [1.4.18](https://github.com/dev-alan-au/electron-demo/compare/v1.4.17...v1.4.18) (2025-07-09)
 
 
