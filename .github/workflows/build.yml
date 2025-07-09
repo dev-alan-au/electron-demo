@@ -125,7 +125,8 @@ jobs:
                     console.error(err);
                     return;
                   }
-                  
+
+                  console.log(data);
                   releases.push(data);
                 });
               });
