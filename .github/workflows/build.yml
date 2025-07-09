@@ -121,7 +121,7 @@ jobs:
 
               console.log(files.length)
             
-              for(const file in files) {
+              files.foreach(file => {
                 fs.readFileSync(allReleasesPath + '/' + file, 'utf8', (err, data) => {
                   if (err) {
                     console.error(err);
@@ -132,7 +132,7 @@ jobs:
                   releases.push(data);
                 });
               });
-            };
+            });
             
             const releaseSummary = {
               currentRelease: version,
