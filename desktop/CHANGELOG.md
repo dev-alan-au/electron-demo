@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/dev-alan-au/electron-demo/compare/v1.4.7...v1.4.8) (2025-07-09)
+
+
+### Bug Fixes
+
+* write a release ([752eae8](https://github.com/dev-alan-au/electron-demo/commit/752eae8c83d26b906b3a8d741d7c055b368a3edc))
+
 ## [1.4.7](https://github.com/dev-alan-au/electron-demo/compare/v1.4.6...v1.4.7) (2025-07-08)
 
 
