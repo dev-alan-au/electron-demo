@@ -105,7 +105,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add releases/\*
+          git add desktop/releases/\*
           git commit -m "Add new release JSON"
 
       - name: Push changes
