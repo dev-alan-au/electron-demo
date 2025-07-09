@@ -1,4 +1,17 @@
 {
-  "currentRelease": "1.4.26",
-  "releases": []
+  "currentRelease": "1.4.27",
+  "releases": [
+    "{\n  \"version\": \"1.4.14\",\n  \"updateTo\": {\n    \"version\": \"1.4.14\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.14/file.zip\",\n    \"pub_date\": \"2025-07-09T02:35:54.606Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.15\",\n  \"updateTo\": {\n    \"version\": \"1.4.15\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.15/file.zip\",\n    \"pub_date\": \"2025-07-09T02:47:16.042Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.17\",\n  \"updateTo\": {\n    \"version\": \"1.4.17\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.17/file.zip\",\n    \"pub_date\": \"2025-07-09T02:51:26.152Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.18\",\n  \"updateTo\": {\n    \"version\": \"1.4.18\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.18/file.zip\",\n    \"pub_date\": \"2025-07-09T02:55:03.562Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.19\",\n  \"updateTo\": {\n    \"version\": \"1.4.19\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.19/file.zip\",\n    \"pub_date\": \"2025-07-09T02:56:39.221Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.20\",\n  \"updateTo\": {\n    \"version\": \"1.4.20\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.20/file.zip\",\n    \"pub_date\": \"2025-07-09T03:15:24.945Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.21\",\n  \"updateTo\": {\n    \"version\": \"1.4.21\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.21/file.zip\",\n    \"pub_date\": \"2025-07-09T03:17:40.722Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.22\",\n  \"updateTo\": {\n    \"version\": \"1.4.22\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.22/file.zip\",\n    \"pub_date\": \"2025-07-09T03:20:43.049Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.23\",\n  \"updateTo\": {\n    \"version\": \"1.4.23\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.23/file.zip\",\n    \"pub_date\": \"2025-07-09T03:24:48.077Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.25\",\n  \"updateTo\": {\n    \"version\": \"1.4.25\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.25/file.zip\",\n    \"pub_date\": \"2025-07-09T03:44:20.881Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.26\",\n  \"updateTo\": {\n    \"version\": \"1.4.26\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.26/file.zip\",\n    \"pub_date\": \"2025-07-09T03:51:09.704Z\"\n  }\n}",
+    "{\n  \"version\": \"1.4.27\",\n  \"updateTo\": {\n    \"version\": \"1.4.27\",\n    \"url\": \"http://google.com/desktop/mac-os/1.4.27/file.zip\",\n    \"pub_date\": \"2025-07-09T03:55:43.651Z\"\n  }\n}"
+  ]
 }
