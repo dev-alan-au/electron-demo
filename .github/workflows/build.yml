@@ -83,16 +83,15 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const version = require('./desktop/package.json').version;
-            const downloads = {
+            const release = {
               version,
-              date: new Date().toISOString().split('T')[0],
-              downloads: {
-                mac: 'http://google.com/desktop/mac-os/' + version + '/file.zip',
-                linux: 'http://google.com/desktop/ubuntu/' + version + '/file.zip',
-                windows: 'http://google.com/desktop/windows/' + version + '/file.zip'
+              updateTo: {
+                version,
+                url: 'http://google.com/desktop/mac-os/' + version + '/file.zip',
+                pub_date: new Date().toISOString(),
               }
             };
-            fs.writeFileSync(path.join(__dirname, 'desktop', 'release.json'), JSON.stringify(downloads, null, 2));
+            fs.writeFileSync(path.join(__dirname, 'desktop', 'releases', version + '.json'), JSON.stringify(release, null, 2));
           "
 
       - name: Upload release.json
