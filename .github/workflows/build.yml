@@ -114,6 +114,44 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
 
+      - name: Compile release.json from JSON files
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            const version = require('./desktop/package.json').version;
+            const allReleases = path.join(__dirname, 'desktop', 'releases');
+            const releases = [];
+
+            fs.readdir(directoryPath, (err, files) => {
+              if (err) {
+                console.error('Error reading directory:', err);
+                return;
+              }
+            
+              // Sort the files array alphabetically
+              files.sort((a, b) => a.localeCompare(b)); // Use localeCompare for proper alphabetical sorting
+            
+              files.forEach(file => {
+                fs.readFile(file, 'utf8', (err, data) => {
+                  if (err) {
+                    console.error(err);
+                    return;
+                  }
+                  
+                  releases.push(data);
+                });
+              });
+            });
+            
+            const releaseSummary = {
+              currentRelease: version,
+              releases,
+            };
+            
+            fs.writeFileSync(path.join(__dirname, 'desktop', 'RELEASE.json'), JSON.stringify(release, null, 2));
+          "
+
       # - name: Upload release.json
       #   uses: actions/upload-artifact@v4
       #   with:
