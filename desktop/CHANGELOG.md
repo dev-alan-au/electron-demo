@@ -1,3 +1,10 @@
+## [1.4.17](https://github.com/dev-alan-au/electron-demo/compare/v1.4.16...v1.4.17) (2025-07-09)
+
+
+### Bug Fixes
+
+* file name ([d954ce0](https://github.com/dev-alan-au/electron-demo/commit/d954ce069c5c7d2cae3384bbfd9745475ba64b26))
+
 ## [1.4.16](https://github.com/dev-alan-au/electron-demo/compare/v1.4.15...v1.4.16) (2025-07-09)
 
 
