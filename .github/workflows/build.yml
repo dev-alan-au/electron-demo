@@ -118,17 +118,14 @@ jobs:
             
               // Sort the files array alphabetically
               files.sort((a, b) => a.localeCompare(b)); // Use localeCompare for proper alphabetical sorting
-
-              console.log(files.length);
             
               files.forEach(file => {
-                fs.readFile(allReleasesPath + file, 'utf8', (err, data) => {
+                fs.readFile(allReleasesPath + '/' + file, 'utf8', (err, data) => {
                   if (err) {
                     console.error(err);
                     return;
                   }
-
-                  console.log(data);
+                  
                   releases.push(data);
                 });
               });
